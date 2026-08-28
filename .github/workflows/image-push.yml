@@ -1,0 +1,13 @@
+name: Image Build and Push
+
+on:
+    workflow_call:
+
+jobs:
+    Build-and-Push:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+
+            

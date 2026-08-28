@@ -1,0 +1,12 @@
+name: SonarQube Scan
+on:
+    workflow_call:
+
+jobs:
+    Sonar-Scan:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+
+          

@@ -6,4 +6,14 @@ on:
 
 jobs:
     Code-Quality:
-        uses: ./.github/workflows/code-lint.yml
+        uses: ./.github/workflows/code-lint.yaml
+    Secret-Scan:
+        uses: ./.github/workflows/secret-scanning.yml
+    Dependency-Scan:
+        uses: ./.github/workflows/dependency-check.yml
+    Image-Scan:
+        uses: ./.github/workflows/image-scan.yml
+    Sonarqube-Scan:
+        uses: ./.github/workflows/sonar-scan.yml
+    Image-Build-and-Push:
+        uses: ./.github/workflows/image-push.yml
