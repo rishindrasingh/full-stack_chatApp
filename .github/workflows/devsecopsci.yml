@@ -15,5 +15,8 @@ jobs:
         uses: ./.github/workflows/image-scan.yml
     Sonarqube-Scan:
         uses: ./.github/workflows/sonar-scan.yml
+        secrets: inherit
     Image-Build-and-Push:
+        needs: [Code-Quality, Secret-Scan, Dependency-Scan, Image-Scan, Sonarqube-Scan]
         uses: ./.github/workflows/image-push.yml
+        secrets: inherit
