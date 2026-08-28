@@ -1,0 +1,9 @@
+name: DevSecOps CI
+
+on: 
+    push:
+        branches: [ main ]
+
+jobs:
+    Code-Quality:
+        uses: ./.github/workflows/code-lint.yml
