@@ -17,4 +17,20 @@ jobs:
               with:
                 dockerfile: ./${{ matrix.image }}/Dockerfile
 
+            - name: Build Docker Image
+              run: |
+                docker build \
+                  -t ${{ vars.DOCKERHUB_USERNAME }}/chatapp-${{ matrix.image }}:latest ./${{ matrix.image }}
+            
+            - name: Run Trivy vulnerability scanner
+              uses: aquasecurity/trivy-action@v0.36.0
+              continue-on-error: true
+              with:
+                image-ref: '${{ vars.DOCKERHUB_USERNAME }}/chatapp-${{ matrix.image }}:latest'
+                format: 'table'
+                exit-code: '1'
+                ignore-unfixed: true
+                vuln-type: 'os,library'
+                severity: 'CRITICAL'
+
            
