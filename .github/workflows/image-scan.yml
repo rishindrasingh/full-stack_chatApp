@@ -5,8 +5,16 @@ on:
 jobs:
     Scan:
         runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                image: [frontend, backend]
         steps:
             - name: Checkout code
               uses: actions/checkout@v7
+            
+            - name: Dockerfile linting
+              uses: hadolint/hadolint-action@v3.1.0
+              with:
+                dockerfile: ./${{ matrix.image }}/Dockerfile
 
            
