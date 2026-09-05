@@ -26,6 +26,9 @@ spec:
         - name: NODE_ENV
           value: production
 
+        - name: PORT
+          value: "5001"
+
         - name: MONGODB_URI
           value: "mongodb://mongoadmin:test123@mongodb:27017/dbname?authSource=admin"
 
